@@ -30,6 +30,11 @@ export default function App() {
           onThemeRequest={setScheme}
         />
       </div>
+      <footer className="py-6 text-center text-sm text-gray-500">
+        <a target="_blank" href="https://www.josecodea.com/" className="hover:text-gray-700 transition-colors">
+          Jose's site
+        </a>
+      </footer>
     </main>
   );
 }

@@ -1,5 +1,7 @@
 "use client";
 
+/* eslint-disable  */
+
 import type { Widgets } from "@openai/chatkit";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChatKit, useChatKit } from "@openai/chatkit-react";
