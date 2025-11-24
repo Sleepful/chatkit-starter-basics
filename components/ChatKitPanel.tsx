@@ -1,5 +1,6 @@
 "use client";
 
+import type { Widgets } from "@openai/chatkit";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChatKit, useChatKit } from "@openai/chatkit-react";
 import {
@@ -62,6 +63,21 @@ export function ChatKitPanel({
   );
   const [widgetInstanceKey, setWidgetInstanceKey] = useState(0);
 
+  const handleWidgetAction = useCallback(
+    async (
+      action: { type: string; payload?: Record<string, any> },
+      widgetItem: { id: string; widget: Widgets.Card | Widgets.ListView }
+    ) => {
+      console.info("[ChatKitPanel] widget action", action.payload);
+      const message = action.payload?.quiz.answer || "Continue"
+      await chatkit.sendUserMessage({ text: message });
+      return;
+      // if (action.type === "cats.more_names") {
+      //   return;
+      // }
+    },
+    []
+  );
   const setErrorState = useCallback((updates: Partial<ErrorState>) => {
     setErrors((current) => ({ ...current, ...updates }));
   }, []);
@@ -269,7 +285,7 @@ export function ChatKitPanel({
     },
     startScreen: {
       greeting: GREETING,
-      prompts: STARTER_PROMPTS,
+      // prompts: STARTER_PROMPTS,
     },
     composer: {
       placeholder: PLACEHOLDER_INPUT,
@@ -280,6 +296,9 @@ export function ChatKitPanel({
     },
     threadItemActions: {
       feedback: false,
+    },
+    widgets: {
+      onAction: handleWidgetAction,
     },
     onClientTool: async (invocation: {
       name: string;

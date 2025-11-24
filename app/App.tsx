@@ -7,6 +7,7 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 export default function App() {
   const { scheme, setScheme } = useColorScheme();
 
+  console.info("hi");
   const handleWidgetAction = useCallback(async (action: FactAction) => {
     if (process.env.NODE_ENV !== "production") {
       console.info("[ChatKitPanel] widget action", action);

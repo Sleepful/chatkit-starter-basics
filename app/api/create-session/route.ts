@@ -74,7 +74,9 @@ export async function POST(request: Request): Promise<Response> {
         chatkit_configuration: {
           file_upload: {
             enabled:
-              parsedBody?.chatkit_configuration?.file_upload?.enabled ?? false,
+              // parsedBody?.chatkit_configuration?.file_upload?.enabled ?? false,
+              // Allow file uploads, might be enough to make it work
+              parsedBody?.chatkit_configuration?.file_upload?.enabled ?? true,
           },
         },
       }),
