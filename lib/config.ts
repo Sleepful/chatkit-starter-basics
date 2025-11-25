@@ -15,7 +15,7 @@ export const STARTER_PROMPTS: StartScreenPrompt[] = [
 
 export const PLACEHOLDER_INPUT = "Ask anything...";
 
-export const GREETING = "Hello, I am your quiz assisstant.\n\n Send me some information that you would like to be quizzed about. Include the information as an attached PDF file(s), or simply paste some textual information into the chat box below.";
+export const GREETING = "Hello, I am your quiz assisstant.\n\n Send me some information that you would like to be quizzed about. Include the information as an attached PDF file(s), or simply paste some textual information into the chat box below. You may send the files and additional textual instructions for your quiz in a single message, in case you need additional control over the content of the quiz.";
 
 export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
   color: {
